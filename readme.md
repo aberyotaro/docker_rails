@@ -8,7 +8,7 @@ rbenvインストール済み
 ```
 $ mkdir app_dir
 $ cd app_dir
-
+$ rbenv local 2.6.1
 $ rails _5.2.2_ new app_name
 # app_nameに、.env, Dockerfile, docker-compose.ymlを配置
 $ docker-compose --build
