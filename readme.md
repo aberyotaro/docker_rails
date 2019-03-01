@@ -5,12 +5,24 @@ rbenvインストール済み
 - ruby 2.6.1
 - Rails5.2.2
 
+## 適当なディレクトリ作成
+
 ```
-$ mkdir app_dir
-$ cd app_dir
+$ mkdir sample_app
+$ cd sample_app
+```
+
+## Rubyバージョンを適宜変更
+
+```
 $ rbenv local 2.6.1
 $ rails _5.2.2_ new {APP_NAME}
-# {APP_NAME}に、`.env`/`Dockerfile`/`docker-compose.yml`を配置
+```
+
+
+## ディレクトリ内に、`.env`/`Dockerfile`/`docker-compose.yml`を配置
+
+```
 $ docker-compose --build
 $ docker-compose up
 ```
