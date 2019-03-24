@@ -4,7 +4,7 @@ services:
     build: .
     command: bundle exec rails s -p ${WEB_PORT} -b '${WEB_HOST}'
     volumes:
-      - .:${APP_PATH}
+      - ./src:${APP_PATH}
     ports:
       - ${WEB_PORT}:3000
     depends_on:
