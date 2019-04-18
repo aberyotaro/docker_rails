@@ -7,22 +7,36 @@ rbenvインストール済み
 - ruby 2.6.1
 - Rails5.2.2
 
-### 適当なディレクトリ作成
+### git clone
 
 ```
-$ mkdir sample_app
-$ cd sample_app
+$ git clone https://github.com/ryotarooooabe/rails_docker.git
+$ cd rails_docker
 ```
 
-### Rubyバージョンを適宜変更
+### Rubyバージョンを変更
 
 ```
 $ rbenv local 2.6.1
 $ rails _5.2.2_ new {APP_NAME}
 ```
 
+### .env.exampleをコピーして.envを作成
 
-### ディレクトリ内に、`.env`/`Dockerfile`/`docker-compose.yml`を配置
+```
+$ cp .env.example .env
+```
+
+### Dockerfileのマッピングを{APP_NAME}に併せて編集
+
+```
+(略)
+
+COPY ./app_name/Gemfile.lock /app/Gemfile.lock
+
+```
+
+### コンテナ起動
 
 ```
 $ docker-compose --build
