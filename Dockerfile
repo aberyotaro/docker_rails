@@ -27,10 +27,10 @@ RUN mkdir /app
 
 WORKDIR /app
 
-COPY src/Gemfile /app/Gemfile
-COPY src/Gemfile.lock /app/Gemfile.lock
+COPY ./src/Gemfile /app/Gemfile
+COPY ./src/Gemfile.lock /app/Gemfile.lock
 
 RUN bundle install
 RUN gem install ruby-debug-ide
 
-COPY src /app
+COPY ./src /app
