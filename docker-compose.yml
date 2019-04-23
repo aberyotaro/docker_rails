@@ -2,22 +2,30 @@ version: '3'
 services:
   web:
     build: .
-    command: bundle exec rails s -p ${WEB_PORT} -b '${WEB_HOST}'
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
-      - ./src:${APP_PATH}
+      - ./src:/app
     ports:
-      - ${WEB_PORT}:3000
+      - 3000:3000
     depends_on:
       - db
     tty: true
     stdin_open: true
+    networks:
+      - common_link
   db:
-    image: mysql:${MYSQL_VERSION}
+    image: mysql:5.7
     volumes:
-      - db-volume:${MYSQL_VOLUME_PATH}
+      - db-volume:/var/lib/mysql
     ports:
-      - ${MYSQL_PORT}:3306
+      - 4304:3306
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: password
+    networks:
+      - common_link
 volumes:
   db-volume:
+networks:
+  common_link:
+    external: true
+
